@@ -1,0 +1,38 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/AppCliTools/">
+    <Project Path="../AppCliTools/AppCliTools.CliMenu/AppCliTools.CliMenu.csproj" />
+    <Project Path="../AppCliTools/AppCliTools.CliParameters/AppCliTools.CliParameters.csproj" />
+    <Project Path="../AppCliTools/AppCliTools.CliParametersApiClientsEdit/AppCliTools.CliParametersApiClientsEdit.csproj" />
+    <Project Path="../AppCliTools/AppCliTools.CliTools/AppCliTools.CliTools.csproj" />
+    <Project Path="../AppCliTools/AppCliTools.LibDataInput/AppCliTools.LibDataInput.csproj" />
+    <Project Path="../AppCliTools/AppCliTools.LibMenuInput/AppCliTools.LibMenuInput.csproj" />
+  </Folder>
+  <Folder Name="/ParametersManagement/">
+    <Project Path="../ParametersManagement/ParametersManagement.LibApiClientParameters/ParametersManagement.LibApiClientParameters.csproj" />
+    <Project Path="../ParametersManagement/ParametersManagement.LibParameters/ParametersManagement.LibParameters.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/SystemTools/">
+    <Project Path="../SystemTools/SystemTools.ApiContracts/SystemTools.ApiContracts.csproj" />
+    <Project Path="../SystemTools/SystemTools.BackgroundTasks/SystemTools.BackgroundTasks.csproj" />
+    <Project Path="../SystemTools/SystemTools.SerilogStuff/SystemTools.SerilogStuff.csproj" />
+    <Project Path="../SystemTools/SystemTools.SystemToolsShared/SystemTools.SystemToolsShared.csproj" />
+    <Project Path="../SystemTools/SystemTools.TestApiContracts/SystemTools.TestApiContracts.csproj" />
+  </Folder>
+  <Folder Name="/ToolsManagement/">
+    <Project Path="../ToolsManagement/ToolsManagement.ApiClientsManagement/ToolsManagement.ApiClientsManagement.csproj" />
+  </Folder>
+  <Folder Name="/UsbCopyServiceShared/">
+    <Project Path="../UsbCopyServiceShared/UsbCopyServiceShared.Contracts/UsbCopyServiceShared.Contracts.csproj" />
+  </Folder>
+  <Project Path="UsbCopyConsole/UsbCopyConsole.csproj" />
+</Solution>
