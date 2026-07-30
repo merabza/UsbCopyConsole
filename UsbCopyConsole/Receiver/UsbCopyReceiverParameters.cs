@@ -22,7 +22,7 @@ public sealed class UsbCopyReceiverParameters : IParameters
 
     //არაინტერაქტიული კონსტრუქტორი (მათ შორის ავტომატური ტესტებისთვის)
     // ReSharper disable once ConvertToPrimaryConstructor
-    public UsbCopyReceiverParameters(string serverAddress, string? apiKey, string remoteProjectName,
+    private UsbCopyReceiverParameters(string serverAddress, string? apiKey, string remoteProjectName,
         string destinationFolder, string[] existingFiles)
     {
         ServerAddress = serverAddress;
@@ -140,27 +140,18 @@ public sealed class UsbCopyReceiverParameters : IParameters
     }
 
     //დანიშნულების საქაღალდეში უკვე არსებული ფაილების სია ('/' გამყოფით), რომ სერვისმა ისინი აღარ გადმოგზავნოს
-    public static string[] ScanExistingFiles(string destinationFolder)
+    private static string[] ScanExistingFiles(string destinationFolder)
     {
-        List<string> result = [];
+        List<string> result =
+        [
+            .. from filePath in Directory.EnumerateFiles(destinationFolder, "*", SearchOption.AllDirectories)
+            select Path.GetRelativePath(destinationFolder, filePath)
+            into relativePath
+            where !relativePath.StartsWith(StagingFolderName + Path.DirectorySeparatorChar, StringComparison.Ordinal)
+            where !relativePath.EndsWith(TempFileExtension, StringComparison.OrdinalIgnoreCase)
+            select relativePath.Replace(Path.DirectorySeparatorChar, '/')
+        ];
 
-        foreach (string filePath in Directory.EnumerateFiles(destinationFolder, "*", SearchOption.AllDirectories))
-        {
-            string relativePath = Path.GetRelativePath(destinationFolder, filePath);
-
-            if (relativePath.StartsWith(StagingFolderName + Path.DirectorySeparatorChar, StringComparison.Ordinal))
-            {
-                continue;
-            }
-
-            if (relativePath.EndsWith(TempFileExtension, StringComparison.OrdinalIgnoreCase))
-            {
-                continue;
-            }
-
-            result.Add(relativePath.Replace(Path.DirectorySeparatorChar, '/'));
-        }
-
-        return result.ToArray();
+        return [.. result];
     }
 }
