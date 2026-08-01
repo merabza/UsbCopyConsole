@@ -339,15 +339,14 @@ public sealed class PackageReceiver
 
     private string BuildHubAddress()
     {
-        return _receiverParameters.ServerAddress + "/" + UsbCopyApiRoutes.ApiBase +
-               UsbCopyApiRoutes.UsbCopyRoute.UsbCopyBase + UsbCopyApiRoutes.UsbCopyRoute.Hub + BuildApiKeyQuery();
+        return _receiverParameters.ServerAddress + UsbCopyApiRoutes.UsbCopyRoute.UsbCopyBase +
+               UsbCopyApiRoutes.UsbCopyRoute.Hub + BuildApiKeyQuery();
     }
 
     private string BuildDownloadAddress(string jobId, string packageId)
     {
-        return _receiverParameters.ServerAddress + "/" + UsbCopyApiRoutes.ApiBase +
-               UsbCopyApiRoutes.UsbCopyRoute.UsbCopyBase + UsbCopyApiRoutes.UsbCopyRoute.Download + "/" + jobId + "/" +
-               packageId + BuildApiKeyQuery();
+        return _receiverParameters.ServerAddress + UsbCopyApiRoutes.UsbCopyRoute.UsbCopyBase +
+               UsbCopyApiRoutes.UsbCopyRoute.Download + "/" + jobId + "/" + packageId + BuildApiKeyQuery();
     }
 
     private string BuildApiKeyQuery()
