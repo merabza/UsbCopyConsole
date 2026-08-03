@@ -116,8 +116,6 @@ public sealed class PackageReceiver
                     }
 
                     break;
-                default:
-                    break;
             }
         }
 
@@ -186,7 +184,9 @@ public sealed class PackageReceiver
 
         string zipPath = Path.Combine(stagingDir, manifest.PackageId + ".zip");
 
-        var zipFileStream = new FileStream(zipPath, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize,
+        // ReSharper disable once using
+        // ReSharper disable once DisposableConstructor
+        await using var zipFileStream = new FileStream(zipPath, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize,
             true);
         await using (zipFileStream.ConfigureAwait(false))
         {
@@ -202,7 +202,9 @@ public sealed class PackageReceiver
     {
         (string targetPath, string tempPath) = GetTargetPaths(manifest);
 
-        var fileStream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize,
+        // ReSharper disable once using
+        // ReSharper disable once DisposableConstructor
+        await using var fileStream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None, CopyBufferSize,
             true);
         await using (fileStream.ConfigureAwait(false))
         {
@@ -223,7 +225,9 @@ public sealed class PackageReceiver
 
         (string targetPath, string tempPath) = GetTargetPaths(manifest);
 
-        var fileStream = new FileStream(tempPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None,
+        // ReSharper disable once using
+        // ReSharper disable once DisposableConstructor
+        await using var fileStream = new FileStream(tempPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None,
             CopyBufferSize, true);
         await using (fileStream.ConfigureAwait(false))
         {
@@ -272,9 +276,11 @@ public sealed class PackageReceiver
     private async Task DownloadToStream(PackageManifest manifest, Stream targetStream,
         CancellationToken cancellationToken)
     {
+        // ReSharper disable once using
         using HttpClient httpClient = _httpClientFactory.CreateClient();
         httpClient.Timeout = Timeout.InfiniteTimeSpan;
 
+        // ReSharper disable once using
         using HttpResponseMessage response = await httpClient.GetAsync(
             new Uri(BuildDownloadAddress(manifest.JobId, manifest.PackageId)),
             HttpCompletionOption.ResponseHeadersRead, cancellationToken);
@@ -284,9 +290,11 @@ public sealed class PackageReceiver
             throw new UsbCopyReceiverException($"Download failed with status code {(int)response.StatusCode}");
         }
 
-        Stream bodyStream = await response.Content.ReadAsStreamAsync(cancellationToken);
+        // ReSharper disable once using
+        await using Stream bodyStream = await response.Content.ReadAsStreamAsync(cancellationToken);
         await using (bodyStream.ConfigureAwait(false))
         {
+            // ReSharper disable once using
             using var incrementalHash = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
             var buffer = new byte[CopyBufferSize];
             long totalRead = 0;
@@ -321,7 +329,7 @@ public sealed class PackageReceiver
         return hubConnection.InvokeAsync(UsbCopyHubEvents.AckPackage, jobId, packageId, ok, error, cancellationToken);
     }
 
-    private void PrintSummary(string? summaryJson)
+    private static void PrintSummary(string? summaryJson)
     {
         JobSummary? summary = summaryJson is null ? null : JsonSerializer.Deserialize<JobSummary>(summaryJson);
         if (summary is null)
