@@ -23,20 +23,18 @@ public sealed class UsbCopyReceiverParameters : IParameters
     //არაინტერაქტიული კონსტრუქტორი (მათ შორის ავტომატური ტესტებისთვის)
     // ReSharper disable once ConvertToPrimaryConstructor
     private UsbCopyReceiverParameters(string serverAddress, string? apiKey, string remoteProjectName,
-        string destinationFolder, string[] existingFiles)
+        string destinationFolder)
     {
         ServerAddress = serverAddress;
         ApiKey = apiKey;
         RemoteProjectName = remoteProjectName;
         DestinationFolder = destinationFolder;
-        ExistingFiles = existingFiles;
     }
 
     public string ServerAddress { get; }
     public string? ApiKey { get; }
     public string RemoteProjectName { get; }
     public string DestinationFolder { get; }
-    public string[] ExistingFiles { get; }
 
     public bool CheckBeforeSave()
     {
@@ -92,10 +90,8 @@ public sealed class UsbCopyReceiverParameters : IParameters
             return null;
         }
 
-        string[] existingFiles = ScanExistingFiles(mainFolder);
-
         return new UsbCopyReceiverParameters(apiClientSettings.Server.TrimEnd('/'), apiClientSettings.ApiKey,
-            remoteProjectName, mainFolder, existingFiles);
+            remoteProjectName, mainFolder);
     }
 
     //დანიშნულების ქვესაქაღალდის არჩევა: ბოლო არსებულის გაგრძელება დადასტურებით ან ახლის შექმნა მიმდინარე დროით
@@ -139,8 +135,9 @@ public sealed class UsbCopyReceiverParameters : IParameters
         return mainFolder;
     }
 
-    //დანიშნულების საქაღალდეში უკვე არსებული ფაილების სია ('/' გამყოფით), რომ სერვისმა ისინი აღარ გადმოგზავნოს
-    private static string[] ScanExistingFiles(string destinationFolder)
+    //დანიშნულების საქაღალდეში უკვე არსებული ფაილების სია ('/' გამყოფით), რომ სერვისმა ისინი აღარ გადმოგზავნოს.
+    //internal-ია, რადგან ყოველი ახალი StartJob-ის წინ სია თავიდან უნდა აიგოს
+    internal static string[] ScanExistingFiles(string destinationFolder)
     {
         List<string> result =
         [
