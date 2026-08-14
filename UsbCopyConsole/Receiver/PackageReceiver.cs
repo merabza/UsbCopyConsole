@@ -113,7 +113,15 @@ public sealed class PackageReceiver
         finally
         {
             _watcherStopRequested = true;
-            await escapeWatcher;
+            try
+            {
+                await escapeWatcher;
+            }
+            catch (OperationCanceledException)
+            {
+                //გარე გაუქმებისას მეთვალყურის ამოცანა Canceled მდგომარეობით სრულდება — ეს შტატური დასასრულია
+            }
+
             linkedCts.Dispose();
         }
     }
@@ -147,9 +155,9 @@ public sealed class PackageReceiver
                     return;
                 }
 
-                await Task.Delay(150);
+                await Task.Delay(150, linkedCts.Token);
             }
-        });
+        }, linkedCts.Token);
     }
 
     //ერთი სრული ცდა: კავშირი, სამუშაოს გაგრძელება ან დაწყება, პაკეტების მიღება კავშირის დაკარგვამდე ან დასრულებამდე
