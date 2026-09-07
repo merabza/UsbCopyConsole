@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using AppCliTools.CliMenu;
 using AppCliTools.CliTools.Services.MenuBuilder;
 using UsbCopyConsole.Menu;
@@ -15,10 +16,10 @@ public class UsbCopyConsoleMenuBuilder : IMenuBuilder
         _serviceProvider = serviceProvider;
     }
 
-    public CliMenuSet? BuildMainMenu()
+    public Task<CliMenuSet?> BuildMainMenu()
     {
         //მთავარი მენიუს ჩატვირთვა
-        return CliMenuSetFactory.CreateMenuSet("Main Menu", MenuData.MainMenuCommandFactoryStrategyNames,
-            _serviceProvider, true);
+        return Task.FromResult(CliMenuSetFactory.CreateMenuSet("Main Menu",
+            MenuData.MainMenuCommandFactoryStrategyNames, _serviceProvider, true));
     }
 }
