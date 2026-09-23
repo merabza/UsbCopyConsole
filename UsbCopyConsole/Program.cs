@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using SystemTools.SystemToolsShared;
+using UsbCopyConsole;
 using UsbCopyConsole.DependencyInjection;
 using UsbCopyConsole.Models;
 
@@ -16,15 +17,24 @@ try
 
     const string appName = "UsbCopyConsole";
 
-    var argParser = new ArgumentsParser<UsbCopyConsoleParameters>(args, appName);
+    var argumentsAnalyzer = new ArgumentsAnalyzer();
 
-    switch (argParser.Analysis())
+    if (!await argumentsAnalyzer.Analysis(args))
+    {
+        return argumentsAnalyzer.ExitCode;
+    }
+
+    var argParser = new ParametersService<UsbCopyConsoleParameters>(appName);
+
+    switch (argParser.Analysis(argumentsAnalyzer.ParametersFileName))
     {
         case EParseResult.Ok:
             break;
-        case EParseResult.Usage:
+        case EParseResult.ShowHelp:
+            argumentsAnalyzer.ShowHelp();
             return 1;
         case EParseResult.ParseError:
+            StShared.WriteErrorLine($"File {argumentsAnalyzer.ParametersFileName} is not valid", true, logger, false);
             return 2;
         default:
             throw new SwitchExpressionException();
