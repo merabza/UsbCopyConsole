@@ -25,6 +25,7 @@
     <Project Path="../SystemTools/SystemTools.ApiContracts/SystemTools.ApiContracts.csproj" />
     <Project Path="../SystemTools/SystemTools.BackgroundTasks/SystemTools.BackgroundTasks.csproj" />
     <Project Path="../SystemTools/SystemTools.SerilogStuff/SystemTools.SerilogStuff.csproj" />
+    <Project Path="../SystemTools/SystemTools.SharedKernel/SystemTools.SharedKernel.csproj" />
     <Project Path="../SystemTools/SystemTools.SystemToolsShared/SystemTools.SystemToolsShared.csproj" />
     <Project Path="../SystemTools/SystemTools.TestApiContracts/SystemTools.TestApiContracts.csproj" />
   </Folder>
