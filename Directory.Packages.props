@@ -6,12 +6,12 @@
   <ItemGroup>
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.13" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.13" />
-    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9790.30721" />
-    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9790.30721" />
+    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9790.31419" />
+    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9790.31419" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <PackageVersion Include="System.CommandLine" Version="2.0.13" />
-    <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9790.30360" />
-    <PackageVersion Include="SystemTools.SystemToolsShared" Version="1.0.9790.30360" />
-    <PackageVersion Include="UsbCopyServiceShared.Contracts" Version="0.0.9790.26525" />
+    <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9790.31339" />
+    <PackageVersion Include="SystemTools.SystemToolsShared" Version="1.0.9790.31339" />
+    <PackageVersion Include="UsbCopyServiceShared.Contracts" Version="0.0.9790.31450" />
   </ItemGroup>
 </Project>
