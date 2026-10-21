@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
@@ -6,7 +6,12 @@
   <ItemGroup>
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.13" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.13" />
+    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9790.27216" />
+    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9790.27216" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <PackageVersion Include="System.CommandLine" Version="2.0.13" />
+    <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9790.27014" />
+    <PackageVersion Include="SystemTools.SystemToolsShared" Version="1.0.9790.27014" />
+    <PackageVersion Include="UsbCopyServiceShared.Contracts" Version="0.0.9790.26525" />
   </ItemGroup>
 </Project>
