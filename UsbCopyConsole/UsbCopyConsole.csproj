@@ -1,13 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\AppCliTools\AppCliTools.CliMenu\AppCliTools.CliMenu.csproj" />
-    <ProjectReference Include="..\..\AppCliTools\AppCliTools.CliParameters\AppCliTools.CliParameters.csproj" />
-    <ProjectReference Include="..\..\AppCliTools\AppCliTools.CliParametersApiClientsEdit\AppCliTools.CliParametersApiClientsEdit.csproj" />
-    <ProjectReference Include="..\..\AppCliTools\AppCliTools.CliTools\AppCliTools.CliTools.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AppCliTools.CliMenu" />
+    <PackageReference Include="AppCliTools.CliParameters" />
+    <PackageReference Include="AppCliTools.CliParametersApiClientsEdit" />
+    <PackageReference Include="AppCliTools.CliTools" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
     <PackageReference Include="Microsoft.Extensions.Http" />
     <PackageReference Include="ParametersManagement.LibApiClientParameters" />
