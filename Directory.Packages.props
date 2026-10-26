@@ -4,14 +4,14 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AppCliTools.CliMenu" Version="1.0.9791.21162" />
-    <PackageVersion Include="AppCliTools.CliParameters" Version="1.0.9791.21162" />
-    <PackageVersion Include="AppCliTools.CliParametersApiClientsEdit" Version="1.0.9791.21162" />
-    <PackageVersion Include="AppCliTools.CliTools" Version="1.0.9791.21162" />
+    <PackageVersion Include="AppCliTools.CliMenu" Version="1.0.9795.20315" />
+    <PackageVersion Include="AppCliTools.CliParameters" Version="1.0.9795.20315" />
+    <PackageVersion Include="AppCliTools.CliParametersApiClientsEdit" Version="1.0.9795.20315" />
+    <PackageVersion Include="AppCliTools.CliTools" Version="1.0.9795.20315" />
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.13" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.13" />
-    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9791.21031" />
-    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9791.21031" />
+    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9795.20216" />
+    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9795.20216" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <PackageVersion Include="System.CommandLine" Version="2.0.13" />
     <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9791.20931" />
