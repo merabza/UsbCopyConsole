@@ -8,8 +8,8 @@
     <PackageVersion Include="AppCliTools.CliParameters" Version="1.0.9811.29691" />
     <PackageVersion Include="AppCliTools.CliParametersApiClientsEdit" Version="1.0.9811.29691" />
     <PackageVersion Include="AppCliTools.CliTools" Version="1.0.9811.29691" />
-    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.14" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.14" />
+    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="11.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="11.0.0" />
     <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9808.42649" />
     <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9808.42649" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
