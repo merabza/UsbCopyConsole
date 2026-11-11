@@ -4,18 +4,18 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="AppCliTools.CliMenu" Version="1.0.9811.29691" />
-    <PackageVersion Include="AppCliTools.CliParameters" Version="1.0.9811.29691" />
-    <PackageVersion Include="AppCliTools.CliParametersApiClientsEdit" Version="1.0.9811.29691" />
-    <PackageVersion Include="AppCliTools.CliTools" Version="1.0.9811.29691" />
+    <PackageVersion Include="AppCliTools.CliMenu" Version="1.0.9811.42600" />
+    <PackageVersion Include="AppCliTools.CliParameters" Version="1.0.9811.42600" />
+    <PackageVersion Include="AppCliTools.CliParametersApiClientsEdit" Version="1.0.9811.42600" />
+    <PackageVersion Include="AppCliTools.CliTools" Version="1.0.9811.42600" />
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="11.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="11.0.0" />
-    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9808.42649" />
-    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9808.42649" />
+    <PackageVersion Include="ParametersManagement.LibApiClientParameters" Version="1.0.9811.42457" />
+    <PackageVersion Include="ParametersManagement.LibParameters" Version="1.0.9811.42457" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <PackageVersion Include="System.CommandLine" Version="2.0.14" />
-    <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9808.33287" />
-    <PackageVersion Include="SystemTools.SystemToolsShared" Version="1.0.9808.33287" />
-    <PackageVersion Include="UsbCopyServiceShared.Contracts" Version="0.0.9791.21069" />
+    <PackageVersion Include="SystemTools.SerilogStuff" Version="1.0.9811.42356" />
+    <PackageVersion Include="SystemTools.SystemToolsShared" Version="1.0.9811.42356" />
+    <PackageVersion Include="UsbCopyServiceShared.Contracts" Version="0.0.9811.42493" />
   </ItemGroup>
 </Project>
